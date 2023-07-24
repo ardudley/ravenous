@@ -5,49 +5,35 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 
 
-export const pizzaData = {
-    imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
-    name: 'MarginOtto Pizzeria',
-    address: '1010 Paddington Way',
-    city: 'Flavortown',
-    state: 'NY',
-    zipCode: '10101',
-    category: 'Italian',
-    rating: 4.5,
-    reviewCount: 90
-}
-
-const Business = () => {
-
+const Business = (({ business }) => {
 
 
         return (
 
                 <Row className="mb-3">
                 <Col>
-                        <Image src={pizzaData.imageSrc} width="150" height="150" rounded />
+                        <Image src={business.imageSrc} width="150" height="150" rounded />
                 </Col>
                  <Col>
-                    <Row className="fw-bold">{pizzaData.name}</Row>
-                    <Row>
-                        {pizzaData.category}
-                    </Row>
-                <Row>{pizzaData.address}</Row>
-                    <Row>{pizzaData.city}, {pizzaData.state} {pizzaData.zipCode} </Row>
-   
-                    <Row>
-    
+                    <Row className="fw-bold">{business.name}</Row>
+
+                <Row>{business.address}</Row>
+                    <Row>{business.city}, {business.state} {business.zipCode} </Row>
+                    </Col>
                         <Col>
-                            {"Rating: " + pizzaData.rating}
-                        </Col>
-                        <Col>
-                            {"Reviews: " + pizzaData.reviewCount}
+                        <Row>
+                        {business.category}
+                        </Row>
+                        <Row>
+                            {"Rating: " + business.rating}
+                        </Row>
+                        
+                        <Row>
+                            {"Reviews: " + business.reviewCount}
+                        </Row>
                         </Col>
                     </Row>
-                 </Col>
-                </Row>
         )
-    
-};
+        });
 
 export default Business;
