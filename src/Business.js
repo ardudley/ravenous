@@ -2,6 +2,8 @@ import react, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
+
 
 export const pizzaData = {
     imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
@@ -18,21 +20,34 @@ export const pizzaData = {
 const Business = () => {
 
 
-    render() {
+
         return (
-                
-            <Container><img src={pizzaData.imageSrc} />
-                <Row>{pizzaData.name}</Row>
-                <Row>{pizzaData.address}</Row>
-                <Row>{pizzaData.city}, {pizzaData.state} {pizzaData.state} </Row>
+
+                <Row className="mb-3">
+                <Col>
+                        <Image src={pizzaData.imageSrc} width="150" height="150" rounded />
+                </Col>
+                 <Col>
+                    <Row className="fw-bold">{pizzaData.name}</Row>
                     <Row>
-                        <Col>{pizzaData.category}</Col>
-                        <Col>{pizzaData.rating}</Col>
-                        <Col>{pizzaData.reviewCount}</Col>
-                     </Row>
-        </Container>
+                        {pizzaData.category}
+                    </Row>
+                <Row>{pizzaData.address}</Row>
+                    <Row>{pizzaData.city}, {pizzaData.state} {pizzaData.zipCode} </Row>
+   
+                    <Row>
+    
+                        <Col>
+                            {"Rating: " + pizzaData.rating}
+                        </Col>
+                        <Col>
+                            {"Reviews: " + pizzaData.reviewCount}
+                        </Col>
+                    </Row>
+                 </Col>
+                </Row>
         )
-    };
-}
+    
+};
 
 export default Business;
